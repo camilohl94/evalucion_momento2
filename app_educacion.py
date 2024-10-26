@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 
@@ -42,4 +43,8 @@ st.bar_chart(df_filtrado["Nivel educativo"].value_counts())
 
 
 st.subheader("Distribución de la Edad")
-st.histogram(df_filtrado["Edad"], bins=10)
+fig, ax = plt.subplots()
+ax.hist(df_filtrado["Edad"], bins=10, edgecolor="black")
+ax.set_xlabel("Edad")
+ax.set_ylabel("Frecuencia")
+st.pyplot(fig)
